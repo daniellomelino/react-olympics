@@ -1,0 +1,66 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+div.team {
+    float: left;
+    text-align: center;
+    width: 325px;
+    margin: 10px 20px;
+    padding-bottom: 10px;
+    border: 2px solid black;
+    background-color: lightblue;
+    border-radius: 5px;
+    filter: drop-shadow(3px 3px 3px black);
+}
+div.country img {
+    margin-top: 10px;
+    width: 64px;
+}
+div.members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 25px;
+}
+div.member {
+    margin-bottom: 15px;
+}
+div.member ul {
+    text-align: center;
+    padding: 0;
+    margin: 0 10px;
+    list-style: none;
+}
+div.member img {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+div.medals {
+    display: flex;
+    justify-content: center;
+}
+div.medals div {
+    float: left;
+}
+div.medals p {
+    font-size: 24pt;
+}
+div.medals button {
+    margin: 10px;
+    padding: 7px;
+    border-radius: 5px;
+}
+div.medals button#bronze {
+    background-color: #8c7853;
+    color: white;
+    font-weight: bold;
+}
+div.medals button#silver {
+    background-color: silver;
+    font-weight: bold;
+}
+div.medals button#gold {
+    background-color: gold;
+    font-weight: bold;
+}
