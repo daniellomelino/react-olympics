@@ -6,6 +6,33 @@ const Team = props => {
     const [teamStyle, setTeamStyle] = React.useState({
         backgroundColor: 'lightblue'
     });
+    const [message, setMessage] = React.useState("");
+
+    React.useEffect(() => {
+        // mount
+        console.log(`${country.name} has entered the arena!`);
+
+        return () => {
+            // unmount
+            console.log(`${country.name} has been disqualified!`);
+        }
+    }, [] /* update variables */)
+
+    React.useEffect(() => {
+        // announce a new silver medal for the team
+        if (bronze > 0) {
+            setMessage(`${country.name} earned another bronze medal!`);
+            setTimeout(() => setMessage(""), 3000);
+        }
+        if (silver > 0) {
+            setMessage(`${country.name} earned another silver medal!`);
+            setTimeout(() => setMessage(""), 3000);
+        }
+        if (gold > 0) {
+            setMessage(`${country.name} earned another gold medal!`);
+            setTimeout(() => setMessage(""), 3000);
+        }
+    }, [bronze, silver, gold])
 
     const addBronze = () => {
         const updatedBronze = bronze + 1;
@@ -75,6 +102,9 @@ const Team = props => {
                     <p>{gold}</p>
                     <button id="gold" type="button" onClick={addGold}>Gold++</button>
                 </div>
+            </div>
+            <div className="message">
+                {message}
             </div>
         </div>
     );

@@ -104,11 +104,9 @@ const App = props => {
     const allTeamMembers = teams.flatMap(team => [...team.members]);
 
     const selectTeamMember = (e) => {
-        console.log('selected team member', e.target.value);
         setSelectedTeamMember(+e.target.value);
     }
     const removeTeamMember = () => {
-        console.log('removing a team member...', selectedTeamMember);
         if (selectedTeamMember) {
             const updatedTeams = teams
                 .map(team => ({
@@ -116,7 +114,6 @@ const App = props => {
                     country: team.country,
                     members: team.members.filter(member => member.id !== selectedTeamMember)
                 }));
-            console.log('updatedTeams', updatedTeams);
             setTeams(updatedTeams);
             setSelectedTeamMember(null);
         }
@@ -136,13 +133,8 @@ const App = props => {
                 <button onClick={removeTeamMember}>Injured</button>
             </div>
             {
-                // if this team's number of members is > 1...
-                // i > 5 ? console.log('big number') : console.log('bad')
+                // only show teams with more than one "active" member
                 teams.map(team => team.members.length > 1 && <Team key={team.id} team={team} />
-                    /*team.members.length > 1
-                    ? <Team key={team.id} team={team} />
-                    : null
-                    */
                 )
             }
             <audio id="bronze" src="sounds/bronze.mp3"></audio>
